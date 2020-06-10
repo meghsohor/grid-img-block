@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap");
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  position: relative;
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+  color: #FFF;
+  background-color: #2b2b2b;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+}
+
+.grid-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+}
+
+.grid-block {
+  position: relative;
+  height: calc(25vh - 10px);
+  max-height: 225px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  z-index: 1;
+  -webkit-transition: all 0.3s cubic-bezier(0.49, 0.025, 0.65, 0.65);
+  transition: all 0.3s cubic-bezier(0.49, 0.025, 0.65, 0.65);
+}
+
+.grid-block:hover:before {
+  opacity: 0.5;
+}
+
+.grid-block:before {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #000;
+  opacity: 0.2;
+  z-index: -1;
+  -webkit-transition: all 0.3s cubic-bezier(0.49, 0.025, 0.65, 0.65);
+  transition: all 0.3s cubic-bezier(0.49, 0.025, 0.65, 0.65);
+}
+
+.grid-block:nth-of-type(1), .grid-block:nth-of-type(6), .grid-block:nth-of-type(9), .grid-block:nth-of-type(10) {
+  grid-column: span 2;
+}
+
+.grid-block.bg1 {
+  background-image: url("../img/1.jpg");
+}
+
+.grid-block.bg2 {
+  background-image: url("../img/2.jpg");
+}
+
+.grid-block h2 {
+  font-size: 45px;
+  font-weight: 300;
+  margin: 10px;
+}
+
+.grid-block h2 span {
+  font-size: 30px;
+}
+
+.grid-block p {
+  font-size: 20px;
+}
+/*# sourceMappingURL=style.css.map */
