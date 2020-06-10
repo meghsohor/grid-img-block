@@ -9,7 +9,6 @@ var currentImages = [1, 2];
 
     setTimeout(function () {
         console.log("Image Slot: " + currentImgSlot + "<br> Image: " + pickedImage);
-        //var bgImgElem = document.getElementsByClassName('bg1');
         var sheet = new CSSStyleSheet();
         sheet.replaceSync('.bg' + currentImgSlot + ' {background-image: url("assets/img/' + pickedImage + '.jpg") !important}');
         document.adoptedStyleSheets = [sheet];
