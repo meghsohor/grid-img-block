@@ -8,12 +8,10 @@ var currentImages = [1, 2];
     var pickedImage = pickImage();
 
     setTimeout(function () {
-        console.log("Image Slot: " + currentImgSlot + "<br> Image: " + pickedImage);
-        var sheet = new CSSStyleSheet();
-        sheet.replaceSync('.bg' + currentImgSlot + ' {background-image: url("assets/img/' + pickedImage + '.jpg") !important}');
-        document.adoptedStyleSheets = [sheet];
+        var rootElement = document.documentElement;
+        rootElement.style.setProperty('--bg' + currentImgSlot, 'url(../img/' + pickedImage +'.jpg)');
         return imgCarousel();
-    }, 5000)
+    }, 2000)
 })()
 
 function pickImageSlot() {
@@ -30,10 +28,10 @@ function pickImage() {
     var min = 1;
     var max = 6;
     var generatedImg = generateRandomNumber(max, min);
-    if (currentImages[currentImgSlot] == generatedImg) {
+    if (currentImages[currentImgSlot - 1] == generatedImg) {
         return pickImage();
     }
-    currentImages[currentImgSlot] = generatedImg;
+    currentImages[currentImgSlot - 1] = generatedImg;
     return generatedImg;
 }
 
